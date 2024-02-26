@@ -3267,5 +3267,13 @@ PrefabInstance:
       propertyPath: m_Name
       value: Knight
       objectReference: {fileID: 0}
+    - target: {fileID: 4338179850470973845, guid: 5d28009248c4fdf4bbb25757ddccbab8, type: 3}
+      propertyPath: speed
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 4338179850470973845, guid: 5d28009248c4fdf4bbb25757ddccbab8, type: 3}
+      propertyPath: jumpingPower
+      value: 7
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5d28009248c4fdf4bbb25757ddccbab8, type: 3}
