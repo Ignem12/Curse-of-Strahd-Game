@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -8,7 +9,15 @@ public class PlayerMovement : MonoBehaviour
     private BoxCollider2D col;
     private SpriteRenderer sprite;
     private Animator anim;
-    public float speed = 7f;
+
+    [SerializeField] private float speed = 7f;
+    [SerializeField] private float jumpingPower = 7f;
+    private float coyoteTime = 0.2f;
+    private float coyoteTimeCounter;
+
+    private float jumpBufferTime = 0.2f;
+    private float jumpBufferCounter;
+
     private float dirX = 0f;
     private enum movementState { idle, running, jumping, falling };
     // Start is called before the first frame update
@@ -28,9 +37,34 @@ public class PlayerMovement : MonoBehaviour
         dirX = Input.GetAxisRaw("Horizontal");
         rb.velocity = new Vector2(dirX * speed, rb.velocity.y);
 
-        if (Input.GetButtonDown("Jump") && isGrounded())
+        if (isGrounded())
         {
-            rb.velocity = new Vector2(rb.velocity.x, 14f);
+            coyoteTimeCounter = coyoteTime;
+        }
+        else
+        {
+            coyoteTimeCounter -= Time.deltaTime;
+        }
+
+        if (Input.GetButtonDown("Jump"))
+        {
+            jumpBufferCounter = jumpBufferTime;
+        }
+        else
+        {
+            jumpBufferCounter -= Time.deltaTime;
+        }
+
+        if (jumpBufferCounter > 0f && coyoteTimeCounter > 0f)
+        {
+            rb.velocity = new Vector2(rb.velocity.x, jumpingPower);
+        }
+
+        if(Input.GetButtonUp("Jump") && rb.velocity.y > 0f)
+        {
+            rb.velocity = new Vector2(rb.velocity.x, rb.velocity.y * 0.5f);
+            coyoteTimeCounter = 0f;
+            jumpBufferCounter = 0f;
         }
         UpdateAnimationState();
     }

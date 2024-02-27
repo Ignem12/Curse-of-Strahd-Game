@@ -3269,11 +3269,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4338179850470973845, guid: 5d28009248c4fdf4bbb25757ddccbab8, type: 3}
       propertyPath: speed
+<<<<<<< HEAD
       value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 4338179850470973846, guid: 5d28009248c4fdf4bbb25757ddccbab8, type: 3}
       propertyPath: m_GravityScale
       value: 4
+=======
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 4338179850470973845, guid: 5d28009248c4fdf4bbb25757ddccbab8, type: 3}
+      propertyPath: jumpingPower
+      value: 7
+>>>>>>> 3972229c88ec764982c993cd6b0bbb1195ac2526
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5d28009248c4fdf4bbb25757ddccbab8, type: 3}
