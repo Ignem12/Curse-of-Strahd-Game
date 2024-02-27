@@ -190,6 +190,8 @@ MonoBehaviour:
   enemyLayer:
     serializedVersion: 2
     m_Bits: 0
+  attackRate: 2
+  attackTime: 0
 --- !u!1 &4669451876947018530
 GameObject:
   m_ObjectHideFlags: 0
